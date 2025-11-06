@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciprocity Theorem Virtual Lab</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reciprocity Theorem Virtual Lab</h1>
+        <p>Verify that R_aa = R_bb for varying input voltages in symmetric resistive networks.</p>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab('circuit1')">Circuit 1 (Va Input)</button>
+            <button class="tab-button" onclick="switchTab('circuit2')">Circuit 2 (Vb Input)</button>
+        </div>
+
+        <div id="circuit1" class="tab-content active">
+            <h2>Circuit 1: Input Va across Left Branch</h2>
+            <label for="va-slider">Va (Volts): <span id="va-value">10</span></label>
+            <input type="range" id="va-slider" min="0" max="30" value="10" step="0.1">
+            <canvas id="canvas1" width="400" height="200"></canvas>
+            <table id="table1">
+                <thead>
+                    <tr>
+                        <th>Va (V)</th>
+                        <th>Ia Practical (mA)</th>
+                        <th>Ia Theoretical (mA)</th>
+                        <th>R_aa Practical (kΩ)</th>
+                        <th>R_aa Theoretical (kΩ)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="va-display">-</td>
+                        <td id="ia-prac">-</td>
+                        <td id="ia-theo">-</td>
+                        <td id="raa-prac">-</td>
+                        <td id="raa-theo">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="circuit2" class="tab-content">
+            <h2>Circuit 2: Input Vb across Right Branch</h2>
+            <label for="vb-slider">Vb (Volts): <span id="vb-value">10</span></label>
+            <input type="range" id="vb-slider" min="0" max="30" value="10" step="0.1">
+            <canvas id="canvas2" width="400" height="200"></canvas>
+            <table id="table2">
+                <thead>
+                    <tr>
+                        <th>Vb (V)</th>
+                        <th>Ib Practical (mA)</th>
+                        <th>Ib Theoretical (mA)</th>
+                        <th>R_bb Practical (kΩ)</th>
+                        <th>R_bb Theoretical (kΩ)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="vb-display">-</td>
+                        <td id="ib-prac">-</td>
+                        <td id="ib-theo">-</td>
+                        <td id="rbb-prac">-</td>
+                        <td id="rbb-theo">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="verification">
+            <h3>Verification</h3>
+            <p id="recip-check">Set same Va = Vb and check if R_aa ≈ R_bb (should be ~2 kΩ theoretically).</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
